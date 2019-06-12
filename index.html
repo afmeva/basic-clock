@@ -7,6 +7,13 @@
     <title>Clock</title>
 
     <style>
+      :root {
+        --tick-w: 2px;
+        --hours-stick-h: 180px;
+        --minutes-stick-h: 220px;
+        --seconds-stick-h: 150px;
+      }
+
       .clock-wrap {
         position: absolute;
         left: 50%;
@@ -20,55 +27,102 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: whitesmoke;
+        background-color: #7097ba;
         border-radius: 50%;
+        border: 6px solid black;
+        box-sizing: border-box;
+      }
+
+      .clock-stick {
+        position: absolute;
+        left: 50%;
+        transform-origin: bottom;
+        background-color: black;
+        width: var(--tick-w);
       }
 
       .hours-stick {
-        position: absolute;
-        left: 50%;
-        transform:rotate(45deg);
-        transform-origin: bottom;
-        background-color: black;
-        width: 1px;
-        height: 250px;
+        height: var(--hours-stick-h);
+        top: calc(250px - var(--hours-stick-h)); /* center - height */
+        transform: rotate(45deg);
       }
 
       .minutes-stick {
-        position: absolute;
-        left: 50%;
-        top: calc(250px - 200px); /* center - height */
-        transform:rotate(60deg);
-        transform-origin: bottom;
-        background-color: black;
-        width: 1px;
-        height: 200px;
+        height: var(--minutes-stick-h);
+        top: calc(250px - var(--minutes-stick-h)); /* center - height */
+        transform: rotate(180deg);
       }
 
-      
       .seconds-stick {
+        height: var(--seconds-stick-h);
+        top: calc(250px - var(--seconds-stick-h)); /* center - height */
+        transform: rotate(75deg);
+      }
+
+      .mark-h {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: black;
+        width: 24px;
+        height: 4px;
+      }
+
+      .mark-v {
         position: absolute;
         left: 50%;
-        top: calc(250px - 150px); /* center - height */
-        transform:rotate(90deg);
-        transform-origin: bottom;
+        transform: translateX(-50%);
         background-color: black;
-        width: 1px;
-        height: 150px;
+        width: 4px;
+        height: 24px;
+      }
+
+      .mark-top {
+        top: 10px;
+      }
+
+      .mark-bottom {
+        bottom: 10px;
+      }
+
+      .mark-left {
+        left: 10px;
+      }
+
+      .mark-right {
+        right: 10px;
+      }
+
+      .mark-center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: black;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
       }
     </style>
   </head>
   <body>
-
     <div class="clock-wrap">
-      <div class="clock"></div>
-      <div class="hours-stick"></div>
-      <div class="minutes-stick"></div>
-      <div class="seconds-stick"></div>
+      <div class="clock">
+        <div class="mark-center"></div>
+        <div class="mark-v mark-top"></div>
+        <div class="mark-v mark-bottom"></div>
+        <div class="mark-h mark-left"></div>
+        <div class="mark-h mark-right"></div>
+      </div>
+      <div class="clock-stick hours-stick"></div>
+      <div class="clock-stick minutes-stick"></div>
+      <div class="clock-stick seconds-stick"></div>
     </div>
 
-
-    <script src="./test.js" type="module"></script>
     <script src="./main.js" type="module"></script>
+    <script type="module">
+      import { init } from './main.js'
+      init()
+    </script>
   </body>
 </html>
