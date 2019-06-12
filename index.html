@@ -4,11 +4,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Clock</title>
+
+    <style>
+      .clock-wrap {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        height: 500px;
+      }
+
+      .clock {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: whitesmoke;
+        border-radius: 50%;
+      }
+
+      .hours-stick {
+        position: absolute;
+        left: 50%;
+        transform:rotate(45deg);
+        transform-origin: bottom;
+        background-color: black;
+        width: 1px;
+        height: 250px;
+      }
+
+      .minutes-stick {
+        position: absolute;
+        left: 50%;
+        top: calc(250px - 200px); /* center - height */
+        transform:rotate(60deg);
+        transform-origin: bottom;
+        background-color: black;
+        width: 1px;
+        height: 200px;
+      }
+
+      
+      .seconds-stick {
+        position: absolute;
+        left: 50%;
+        top: calc(250px - 150px); /* center - height */
+        transform:rotate(90deg);
+        transform-origin: bottom;
+        background-color: black;
+        width: 1px;
+        height: 150px;
+      }
+    </style>
   </head>
   <body>
+
+    <div class="clock-wrap">
+      <div class="clock"></div>
+      <div class="hours-stick"></div>
+      <div class="minutes-stick"></div>
+      <div class="seconds-stick"></div>
+    </div>
+
+
     <script src="./test.js" type="module"></script>
     <script src="./main.js" type="module"></script>
   </body>
 </html>
-,
