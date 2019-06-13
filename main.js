@@ -28,14 +28,11 @@ export const toTimeInDegrees = time => ({
   seconds: secondsToAngle(getSeconds(time))
 })
 
-export const getTimeFromSystem = date => {
-  const time = date
-  return {
-    hours: time.getHours(),
-    minutes: time.getMinutes(),
-    seconds: time.getSeconds()
-  }
-}
+export const getTimeFromSystem = date => ({
+  hours: date.getHours(),
+  minutes: date.getMinutes(),
+  seconds: date.getSeconds()
+})
 
 const setAngle = node => angle => {
   node.style.transform = `translate(-50%, 0) rotate(${angle}deg)`

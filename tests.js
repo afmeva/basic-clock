@@ -81,12 +81,12 @@ describe('test', () => {
       minutes: 30,
       seconds: 45
     })
-
-    expect(timeInDegree).to.eql({
+    const expectedObject = {
       hours: 90,
       minutes: 180,
       seconds: 270
-    })
+    }
+    expect(timeInDegree).to.eql(expectedObject)
   })
 
   it('should create interval and call callback passed', () => {
